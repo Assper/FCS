@@ -3,25 +3,31 @@ import { createAction, createSlice } from "@reduxjs/toolkit";
 export const name = "auth";
 
 const initialState = {
-  access: "",
-  refresh: "",
   user: null,
+  verificationId: "",
 };
 
 const authSlice = createSlice({
   name,
   initialState,
   reducers: {
-    setData(state, action) {
-      state.access = action.payload.access;
-      state.refresh = action.payload.refresh;
+    setUser(state, action) {
       state.user = action.payload.user;
+      state.verificationId = "";
+    },
+    setVerificationId(state, action) {
+      state.verificationId = action.payload;
+    },
+    clearState(state) {
+      state.verificationId = "";
+      state.user = null;
     },
   },
 });
 
 export const { reducer, actions } = authSlice;
-export const { setData } = actions;
+export const { setUser, setVerificationId, clearState } = actions;
 
 export const loginReq = createAction(`${name}/loginReq`);
-export const registerReq = createAction(`${name}/registerReq`);
+export const confrimReq = createAction(`${name}/confrimReq`);
+export const logoutReq = createAction(`${name}/logoutReq`);

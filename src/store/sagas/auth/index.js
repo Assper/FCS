@@ -1,4 +1,5 @@
 import { loginSaga } from "./login";
-import { registerSaga } from "./register";
+import { confirmSaga } from "./confirm";
+import { logoutSaga } from "./logout";
 
-export const authSagas = [loginSaga, registerSaga];
+export const authSagas = [loginSaga, confirmSaga, logoutSaga];
