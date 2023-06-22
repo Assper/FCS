@@ -21,7 +21,7 @@ export class AuthService {
     const confirmationResult = this.storage.getConfirmation();
     const result = await confirmationResult.confirm(code);
     this.storage.clearConfirmation();
-    return result.user;
+    return result;
   }
 
   logout() {

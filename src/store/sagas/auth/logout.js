@@ -1,6 +1,6 @@
 import { takeLatest, put, call } from "redux-saga/effects";
 import { DI } from "../../../core/di";
-import { confrimReq, clearState } from "../../reducers/auth";
+import { clearState, logoutReq } from "../../reducers/auth";
 import { tryCatch } from "../utils";
 
 const service = DI.service.auth;
@@ -12,5 +12,5 @@ function* handleLogout(action) {
 }
 
 export function* logoutSaga() {
-  yield takeLatest(confrimReq.type, tryCatch(handleLogout));
+  yield takeLatest(logoutReq.type, tryCatch(handleLogout));
 }
